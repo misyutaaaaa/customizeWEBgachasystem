@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ガチャシステム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ガチャシステム</h1>
+
+        <!-- 画像・GIFのインポート -->
+        <div class="input-section">
+            <label for="imageInput">画像・GIFをインポート</label>
+            <input type="file" id="imageInput" accept="image/*, .gif" multiple>
+            <div id="imagePreview"></div>
+        </div>
+
+        <!-- レアリティと確率設定 -->
+        <div class="rarity-section">
+            <h2>レアリティ設定</h2>
+            <div id="rarityInputs">
+                <div class="rarity-input">
+                    <label>レアリティ名: </label><input type="text" placeholder="例: ノーマル">
+                    <label>確率: </label><input type="number" placeholder="%" min="0" max="100">%
+                </div>
+            </div>
+            <button onclick="addRarity()">レアリティを追加</button>
+        </div>
+
+        <!-- 音楽インポート -->
+        <div class="input-section">
+            <label for="musicInput">ガチャ結果の音楽 (MP3)</label>
+            <input type="file" id="musicInput" accept="audio/mp3">
+            <audio id="audioPreview" controls style="display: none;"></audio>
+        </div>
+
+        <!-- ガチャボタン -->
+        <button id="gachaButton" onclick="startGacha()">ガチャを引く</button>
+
+        <!-- ガチャ結果表示 -->
+        <div id="gachaResult" class="result-display"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
